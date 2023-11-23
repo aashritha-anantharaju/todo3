@@ -5,7 +5,6 @@ import Items from "./components/Items";
 import { useState } from "react";
 
 function App() {
-  
   const todoItems = [
     {
       name: "ash",
@@ -22,22 +21,21 @@ function App() {
   const handleClick = (itemName, itemDate) => {
     console.log(`${itemName} ${itemDate}`);
 
-    const newTodoItems = [
-      ...todo,
-      { name: itemName, date: itemDate},
-    ];
+    const newTodoItems = [...todo, { name: itemName, date: itemDate }];
     setTodo(newTodoItems);
   };
-  const handleDelete =(todoItemName)=>{
-	const newTodoItem = todo.filter((item)=>item.name !== todoItemName);
-	setTodo(newTodoItem);
+  const handleDelete = (todoItemName) => {
+    const newTodoItem = todo.filter((item) => item.name !== todoItemName);
+    setTodo(newTodoItem);
   };
 
   return (
     <>
       <AppName />
       <Addt onNewItem={handleClick}></Addt>
-      <Items myItems={todo} onDeleteClick={handleDelete}> </Items>
+      <Items myItems={todo} onDeleteClick={handleDelete}>
+        {" "}
+      </Items>
     </>
   );
 }

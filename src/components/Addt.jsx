@@ -1,8 +1,9 @@
 import { useState } from "react";
 
+// eslint-disable-next-line react/prop-types
 function Addt({ onNewItem }) {
-  const [todoName, setTodoName] = useState();
-  const [todoDate, setTodoDate] = useState();
+  const [todoName, setTodoName] = useState("");
+  const [todoDate, setTodoDate] = useState("");
   const handleName = (event) => {
     setTodoName(event.target.value);
   };

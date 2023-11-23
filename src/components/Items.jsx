@@ -1,13 +1,21 @@
 import TodoItem from "./TodoItem";
+import styles from "./Items.module.css";
 
-function Items({myItems}){
-    console.log(myItems)
-    
-    
-    return(
-        <>
-          {myItems.map((item)=>(<TodoItem key={item.key} todoName={item.name} todoDate={item.date} ></TodoItem>))}
-        </>
-    );
-}
+// eslint-disable-next-line react/prop-types
+const Items = ({ myItems, onDeleteClick }) => {
+  return (
+    <div className={styles.itemsContainer}>
+      {myItems.map((item) => (
+        <TodoItem
+          todoDate={item.date}
+          todoName={item.name}
+          onDeleteClick={onDeleteClick}
+          key={Math.random()}
+        >
+        </TodoItem>
+      ))}
+    </div>
+  );
+};
+
 export default Items;
