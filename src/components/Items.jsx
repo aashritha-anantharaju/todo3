@@ -1,7 +1,8 @@
+import PropTypes from "prop-types";
 import TodoItem from "./TodoItem";
 import styles from "./Items.module.css";
 
-// eslint-disable-next-line react/prop-types
+
 const Items = ({ myItems, onDeleteClick }) => {
   return (
     <div className={styles.itemsContainer}>
@@ -11,11 +12,15 @@ const Items = ({ myItems, onDeleteClick }) => {
           todoName={item.name}
           onDeleteClick={onDeleteClick}
           key={Math.random()}
-        >
-        </TodoItem>
+        ></TodoItem>
       ))}
     </div>
   );
+};
+
+Items.propTypes = {
+  myItems: PropTypes.array.isRequired,
+  onDeleteClick: PropTypes.func.isRequired,
 };
 
 export default Items;

@@ -1,13 +1,14 @@
+import PropTypes from "prop-types";
+import styles from "./TodoItem.module.css";
 
-// eslint-disable-next-line react/prop-types
 function TodoItem({ todoName,todoDate,onDeleteClick }) {
     return (
         <div className="container">
-        <div className="row kg-row">
+        <div className={styles.row}>
             <div className="col-6">{todoName}</div>
             <div className="col-4">{todoDate}</div>
             <div className="col-2">
-            <button type="button" className="btn btn-danger kg-button" onClick={onDeleteClick(todoName)}>
+            <button type="button" className="btn btn-danger" onClick={()=>onDeleteClick(todoName)}>
                 Delete
             </button>
             </div>
@@ -15,5 +16,11 @@ function TodoItem({ todoName,todoDate,onDeleteClick }) {
         </div>
     );
 }
+
+TodoItem.propTypes = {
+  todoName: PropTypes.string.isRequired,
+  todoDate: PropTypes.string.isRequired,
+  onDeleteClick: PropTypes.func.isRequired,
+};
     
 export default TodoItem;
